@@ -6,9 +6,9 @@
 <br/>
 ➤ *Web Development*
 <br/>
-➤ *Machine Learning *
+➤ * Machine Learning *
 <br/>
-➤ *rtificial Intelligence *
+➤ * Artificial Intelligence *
 <br/>
 ➤ *Object Oriented Programming*
 <br/>
