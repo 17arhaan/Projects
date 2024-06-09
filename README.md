@@ -1,4 +1,5 @@
-# Projects
+# Projects 
+<a href="https://github.com/17arhaan" target="_blank"><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" target="_blank"></a>
 ### This GitHub repository serves as a comprehensive portfolio of my diverse range of projects, reflecting my journey, skills, and expertise across various domains.
 
 ###### Relevant Coursework
