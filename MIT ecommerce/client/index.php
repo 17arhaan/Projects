@@ -27,7 +27,6 @@ include('../client/inc/header.php');
   get_products();
 
 
-
   ?>
 </div>
 </div>
@@ -44,7 +43,7 @@ include('../client/inc/header.php');
         <p class="text-start">As MIT Manipal's retailer, we're here to serve you, the students, with a wide range of products. Expect top-notch service and a hassle-free shopping experience every time. Thanks for choosing us for all your needs!</p>
       </div>
       <div class="text-start">
-        <h5 class="text-uppercase text-start mb-3">Contact Us</h5>
+        <h5 class="text-uppercase text-start mb-3">Contact Us :</h5>
         <div class="mb-1">
           Address: MIT Manipal , Karnataka - 576104
         </div>
