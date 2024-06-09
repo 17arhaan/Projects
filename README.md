@@ -6,13 +6,13 @@
 <br/>
 ➤ *Web Development*
 <br/>
-➤ * Machine Learning *
+➤ *Machine Learning*
 <br/>
-➤ * Artificial Intelligence *
+➤ *Artificial Intelligence*
 <br/>
 ➤ *Object Oriented Programming*
 <br/>
-➤* Data Structure and Algorithms*
+➤ *Data Structure and Algorithms*
 <br/>
 ➤ *Database Management*
 <br/>
