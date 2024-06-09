@@ -1,5 +1,7 @@
-# This GitHub repository serves as a comprehensive portfolio of my diverse range of projects, reflecting my journey, skills, and expertise across various domains :-
 
+## This GitHub repository serves as a comprehensive portfolio of my diverse range of projects, reflecting my journey, skills, and expertise across various domains.
+
+##### RELEVANT COURSEWORK
 ➤ *Software Development*
 <br/>
 ➤ *Data Science and Analysis*
