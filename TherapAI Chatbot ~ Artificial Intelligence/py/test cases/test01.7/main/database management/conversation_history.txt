@@ -1,0 +1,3 @@
+system:You are a helpful Therapist.:29 Jun 2024 | 21:55:system
+user:am I sad ?:29 Jun 2024 | 21:55:Arhaan
+assistant:As a AI, I don't have access to your emotions. However, I'm here to provide you support. If you're feeling sad, do not hesitate to seek help. It's completely normal to experience a range of emotions, and there's no shame in discussing it. I'm here to listen. Would you want to share more about what you're going through?:29 Jun 2024 | 21:55:assistant
