@@ -1,0 +1,15 @@
+/* Dark mode styles */
+body {
+    background-color: #222; /* Dark background */
+    color: #fff; /* Light text */
+}
+
+header {
+    background-color: #333; /* Dark header background */
+    color: #fff; /* Light text */
+}
+
+main {
+    background-color: #333; /* Dark main background */
+    color: #fff; /* Light text */
+}
