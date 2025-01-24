@@ -3,15 +3,19 @@
 ### This GitHub repository serves as a comprehensive portfolio of my diverse range of projects, reflecting my journey, skills, and expertise across various domains.
 
 ###### Relevant Coursework
-➤ *Software Development*
-<br/>
-➤ *Data Science and Analysis*
+➤ *Artificial Intelligence*
 <br/>
 ➤ *Web Development*
 <br/>
+➤ *Computer Vision*
+<br/>
+➤ *Deep Learning*
+<br/>
+➤ *Big Data Analytics*
+<br/>
 ➤ *Machine Learning*
 <br/>
-➤ *Artificial Intelligence*
+➤ *Reinforcement Learning*
 <br/>
 ➤ *Object Oriented Programming*
 <br/>
@@ -19,6 +23,7 @@
 <br/>
 ➤ *Database Management*
 <br/>
+
 
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif">
 <div align = "center">
