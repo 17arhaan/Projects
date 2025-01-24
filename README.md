@@ -21,7 +21,9 @@
 <br/>
 
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif">
-
-<img src="https://i.pinimg.com/originals/60/69/06/6069060ed00f7ecc749c32a5dd84b188.gif">
+<div align = "center">
+<img src="https://cdn.theatlantic.com/thumbor/uIv9O_lLCv-Nm0EUKm5EHALLmVg=/1x0:1999x1124/960x540/media/img/mt/2024/12/dark_1_1/original.gif">
+  
+</div>
 
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif">
