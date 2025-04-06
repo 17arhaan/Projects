@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TherapAI</title>
+    <link rel="stylesheet" href="static/style.css" id="theme-style">
+    <script>
+        function toggleDarkMode() {
+            const body = document.body;
+            body.classList.toggle('dark-mode');
+            const themeStyle = document.getElementById('theme-style');
+            const currentTheme = themeStyle.getAttribute('href');
+            const newTheme = currentTheme === 'static/style.css' ? 'static/dark-style.css' : 'static/style.css';
+            themeStyle.setAttribute('href', newTheme);
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Welcome to AI Therapist</h1>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/chat">Chat</a>
+            <a href="/history">History</a>
+            <button onclick="toggleDarkMode()">Dark Mode</button>
+        </nav>
+    </header>
+    <main>
+        <h2>Feel free to talk to our AI Therapist</h2>
+        <p>This service is here to help you with any issues you might have.</p>
+    </main>
+</body>
+</html>
