@@ -24,6 +24,17 @@
 ➤ *Database Management*
 <br/>
 
+###### Deployements
+➤ *Portfolio* - https://www.arhaanportfolio.in/
+<br/>
+➤ *W.E.A.L.T.H* - https://wealth-pi.vercel.app/
+<br/>
+➤ *Sentiment Analysis* - https://sentiment-analysis-sepia.vercel.app/
+<br/>
+➤ *Speedy* - https://speedy-green.vercel.app/
+<br/>
+➤ *Mind Mapper* - https://v0-mindmap-app-sigma.vercel.app/
+<br/>
 
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif">
 <div align = "center">
