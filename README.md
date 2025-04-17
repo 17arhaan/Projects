@@ -23,7 +23,6 @@
 <br/>
 ➤ *Database Management*
 <br/>
-
 ###### Deployements
 ➤ *Portfolio* - https://www.arhaanportfolio.in/
 <br/>
