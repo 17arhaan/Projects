@@ -35,7 +35,6 @@
 <br/>
 ➤ *Mind Mapper* - https://v0-mindmap-app-sigma.vercel.app/
 <br/>
-
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif">
 <div align = "center">
 <img src="https://cdn.theatlantic.com/thumbor/uIv9O_lLCv-Nm0EUKm5EHALLmVg=/1x0:1999x1124/960x540/media/img/mt/2024/12/dark_1_1/original.gif">
