@@ -1,0 +1,271 @@
+#include <iostream>
+#include <fstream>
+#include <vector>
+#include <cstdlib>
+#include <ctime>
+
+#define GRID_SIZE 100
+#define OBSTACLE_PERCENTAGE 10
+#define AGENT_COUNT 50
+
+struct Agent {
+    int start_x, start_y;
+    int goal_x, goal_y;
+};
+
+void generateTestcase(const std::string& filename) {
+    std::ofstream file(filename);
+    if (!file) {
+        std::cerr << "Error opening file!" << std::endl;
+        return;
+    }
+    
+    std::vector<std::vector<int>> grid(GRID_SIZE, std::vector<int>(GRID_SIZE, 0));
+    
+    srand(time(0));
+    for (int i = 0; i < GRID_SIZE; ++i) {
+        for (int j = 0; j < GRID_SIZE; ++j) {
+            if ((rand() % 100) < OBSTACLE_PERCENTAGE) {
+                grid[i][j] = 1;  // Obstacle
+            }
+        }
+    }
+    
+    std::vector<Agent> agents;
+    for (int i = 0; i < AGENT_COUNT; ++i) {
+        Agent a;
+        do {
+            a.start_x = rand() % GRID_SIZE;
+            a.start_y = rand() % GRID_SIZE;
+        } while (grid[a.start_x][a.start_y] == 1);
+        
+        do {
+            a.goal_x = rand() % GRID_SIZE;
+            a.goal_y = rand() % GRID_SIZE;
+        } while (grid[a.goal_x][a.goal_y] == 1);
+        
+        agents.push_back(a);
+    }
+    
+    file << GRID_SIZE << " " << GRID_SIZE << "\n";
+    for (int i = 0; i < GRID_SIZE; ++i) {
+        for (int j = 0; j < GRID_SIZE; ++j) {
+            file << grid[i][j] << " ";
+        }
+        file << "\n";
+    }
+    
+    file << AGENT_COUNT << "\n";
+    for (const auto& agent : agents) {
+        file << agent.start_x << " " << agent.start_y << " " << agent.goal_x << " " << agent.goal_y << "\n";
+    }
+    
+    file.close();
+}
+
+int main() {
+    generateTestcase("testcases.txt");
+    std::cout << "Testcase generated successfully!" << std::endl;
+    return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <mpi.h>
+
+#define GRID_SIZE 100
+#define NUM_ZONES 4
+
+void processZones(const char* inputFile, const char* outputFile) {
+    MPI_Init(NULL, NULL);
+    int rank, size;
+    MPI_Comm_rank(MPI_COMM_WORLD, &rank);
+    MPI_Comm_size(MPI_COMM_WORLD, &size);
+
+    if (rank == 0) {
+        FILE* file = fopen(inputFile, "r");
+        if (!file) {
+            printf("Error opening file!\n");
+            MPI_Abort(MPI_COMM_WORLD, 1);
+        }
+        
+        int width, height;
+        fscanf(file, "%d %d", &width, &height);
+        
+        int grid[GRID_SIZE][GRID_SIZE];
+        for (int i = 0; i < width; ++i) {
+            for (int j = 0; j < height; ++j) {
+                fscanf(file, "%d", &grid[i][j]);
+            }
+        }
+
+        fclose(file);
+        
+        FILE* outputFileStream = fopen(outputFile, "w");
+        if (!outputFileStream) {
+            printf("Error opening output file!\n");
+            MPI_Abort(MPI_COMM_WORLD, 1);
+        }
+        
+        fprintf(outputFileStream, "%d %d\n", width, height);
+        for (int i = 0; i < width; ++i) {
+            for (int j = 0; j < height; ++j) {
+                fprintf(outputFileStream, "%d ", grid[i][j]);
+            }
+            fprintf(outputFileStream, "\n");
+        }
+
+        fclose(outputFileStream);
+    }
+    
+    MPI_Finalize();
+}
+
+int main(int argc, char** argv) {
+    processZones("testcases.txt", "zones.txt");
+    printf("Zones processed successfully!\n");
+    return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#include <iostream>
+#include <fstream>
+#include <vector>
+#include <cuda_runtime.h>
+
+#define GRID_SIZE 100
+#define AGENT_COUNT 50
+
+struct Agent {
+    int start_x, start_y;
+    int goal_x, goal_y;
+};
+
+__global__ void simulateMovement(int* grid, Agent* agents, int* output, int agentCount) {
+    int idx = threadIdx.x + blockIdx.x * blockDim.x;
+    if (idx < agentCount) {
+        int x = agents[idx].start_x;
+        int y = agents[idx].start_y;
+        output[idx * 2] = x;
+        output[idx * 2 + 1] = y;
+    }
+}
+
+void runSimulation(const std::string& inputFile) {
+    std::ifstream file(inputFile);
+    if (!file) {
+        std::cerr << "Error opening zones file!" << std::endl;
+        return;
+    }
+
+    int width, height;
+    file >> width >> height;
+
+    std::vector<std::vector<int>> grid(width, std::vector<int>(height));
+    for (int i = 0; i < width; ++i) {
+        for (int j = 0; j < height; ++j) {
+            file >> grid[i][j];
+        }
+    }
+
+    std::vector<Agent> agents(AGENT_COUNT);
+    for (int i = 0; i < AGENT_COUNT; ++i) {
+        file >> agents[i].start_x >> agents[i].start_y >> agents[i].goal_x >> agents[i].goal_y;
+    }
+
+    file.close();
+
+    int* d_grid;
+    Agent* d_agents;
+    int* d_output;
+    int output[AGENT_COUNT * 2];
+
+    cudaMalloc(&d_grid, width * height * sizeof(int));
+    cudaMalloc(&d_agents, AGENT_COUNT * sizeof(Agent));
+    cudaMalloc(&d_output, AGENT_COUNT * 2 * sizeof(int));
+
+    cudaMemcpy(d_grid, &grid[0][0], width * height * sizeof(int), cudaMemcpyHostToDevice);
+    cudaMemcpy(d_agents, agents.data(), AGENT_COUNT * sizeof(Agent), cudaMemcpyHostToDevice);
+
+    simulateMovement<<<1, AGENT_COUNT>>>(d_grid, d_agents, d_output, AGENT_COUNT);
+    
+    cudaMemcpy(output, d_output, AGENT_COUNT * 2 * sizeof(int), cudaMemcpyDeviceToHost);
+
+    cudaFree(d_grid);
+    cudaFree(d_agents);
+    cudaFree(d_output);
+
+    std::ofstream outFile("movements.txt");
+    for (int i = 0; i < AGENT_COUNT; ++i) {
+        outFile << output[i * 2] << " " << output[i * 2 + 1] << "\n";
+    }
+
+    outFile.close();
+    std::cout << "Simulation complete, movements saved!" << std::endl;
+}
+
+int main() {
+    runSimulation("zones.txt");
+    return 0;
+}
